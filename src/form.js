@@ -1,47 +1,44 @@
-import React, {useState} from 'react';
-import {Redirect} from 'react-router-dom';
+import React from 'react';
+import { Link} from 'react-router-dom';
 import './style.css';
 import ReactNotification from 'react-notifications-component';
-import useFormValidation from './formValidation';
+import {useFormValidation} from './formValidation';
 import validationRegister from './validationRegister';
-import initialStateRegister from './initialStateRegister';
+import {initialStateRegister} from './initialState';
 
 function Form() {
-
   const { handleSubmit, handleChange, error, values, isSubmitting} = useFormValidation(initialStateRegister, validationRegister);
-  const [redirect, setRedirect] = useState(false);  
 
-  if(!redirect){
-    return (
-        <div className='container'>
-          <ReactNotification> </ReactNotification>
-          <form className='box' onSubmit={handleSubmit}>
-              <h1>Create Account</h1>
-              <label htmlFor='firstname'>First Name:</label>
-              <input type='text' name='firstname' onChange={handleChange} value={values.firstname} />
-              {error.firstname && <p className='error-message'>{error.firstname}</p>}
-              <label htmlFor='lastname'>Last Name:</label>
-              <input type='text' name='lastname' onChange={handleChange} value={values.lastname} />
-              {error.lastname && <p className='error-message'>{error.lastname}</p>}
-              <label htmlFor='email'>Email:</label>
-              <input type='email' name='email' onChange={handleChange} value={values.email} />
-              {error.email && <p className='error-message'>{error.email}</p>}
-              <label htmlFor='username'>Username:</label>
-              <input name='username' onChange={handleChange} value={values.username} type='text'/>
-              {error.username && <p className='error-message'>{error.username}</p>}
-              <label>Password:</label>
-              <input name='password' onChange={handleChange} value={values.password} type='password'/>
-              {error.password && <p className='error-message'>{error.password}</p>}
+      return (
+          <div className='container'>
+            <ReactNotification />
+            <form onSubmit={handleSubmit}>
 
-              <button disabled={isSubmitting} type='submit'>Register</button>
-              <button onClick ={() => setRedirect(true) } type='link'>Login</button>
+                <h1>Create Account</h1>
+                
+                <input type='text' name='firstname' onChange={handleChange} value={values.firstname} placeholder='Firstname' />
+                {error.firstname && <p className='error-message'>{error.firstname}</p>}
+                
+                <input type='text' name='lastname' onChange={handleChange} value={values.lastname} placeholder='Lastname' />
+                {error.lastname && <p className='error-message'>{error.lastname}</p>}
+                
+                <input type='email' name='email' onChange={handleChange} value={values.email} placeholder='E-mail'/>
+                {error.email && <p className='error-message'>{error.email}</p>}
+                
+                <input name='username' onChange={handleChange} value={values.username} type='text' placeholder='User'/>
+                {error.username && <p className='error-message'>{error.username}</p>}
+                
+                <input name='password' onChange={handleChange} value={values.password} type='password' placeholder='Password'/>
+                {error.password && <p className='error-message'>{error.password}</p>}
 
-          </form>
+                <button disabled={isSubmitting} type='submit'>Sign up</button>
+                <Link to='/Login'><button type='button'>Sign in</button></Link>
+                
+            
+            </form>
+          </div>
+      );
+  } 
 
-        </div>
-    );
-  } else{
-     return <Redirect to='/login' />
-  }
-}
+
 export default Form;

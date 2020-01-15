@@ -1,8 +1,8 @@
 import {useState, useEffect} from 'react';
 import notifications from './notification';
-import initialStateRegister from './initialStateRegister';
+import {initialStateRegister} from './initialState';
 
-const useFormValidation = (inicialState, validate) => {
+export const useFormValidation = (inicialState, validate) => {
     const [values, setValues] = useState(inicialState);
     const [error, setError] = useState({});
     const [isSubmitting, setSubmitting] = useState(false);
@@ -16,7 +16,7 @@ const useFormValidation = (inicialState, validate) => {
             setSubmitting(false);
          }
       } 
-    }, [error])
+    }, [error, isSubmitting])
     
     const handleChange = e => {
       setValues({
@@ -48,4 +48,19 @@ const useFormValidation = (inicialState, validate) => {
     return {handleSubmit, handleChange, values, error, isSubmitting}
 }
 
-export default useFormValidation;
+export const useLogin = inicialState => {
+  const [values, setValues] = useState(inicialState);
+
+  const handleChange = e => {
+    setValues({
+      ...values,
+      [e.target.name]: e.target.value
+
+    })
+  }
+  const handleSubmit = e => {
+    e.preventDefault();
+  }
+
+  return {handleSubmit, handleChange, values}
+}

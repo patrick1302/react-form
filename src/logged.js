@@ -1,19 +1,13 @@
-import React, {useState} from 'react';
-import {Redirect} from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './style.css'
 
-function Logged () {
-  const [redirect, setRedirect] = useState(false);
-
-  if(!redirect) {
-    return (
-      <div>
-        <h1>Logado com sucesso!!</h1>
-        <button onClick={() => setRedirect(true) }>Voltar</button>
+const Logged = () => (
+      <div className='container'>
+        <h1>Logado com sucesso!</h1>
+        <Link to='/'><button type='buttom'>Voltar</button></Link>
       </div>
-    )
-  } else {
-      return <Redirect to='/'/>
-  }
-}
+)  
+
 
 export default Logged;

@@ -1,4 +1,3 @@
-
 const validationRegister = values =>  {
     let errors = {};
     if(!values.firstname){

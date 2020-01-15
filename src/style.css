@@ -2,48 +2,71 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    
 }
 
 body {
-    background: #A1C0E1;
+    background: url('./image/background.jpg');
     font-family: 'Noto Serif', serif;
     
 }
 
+form {
+    width: 350px;
+    height: 490px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+h1{
+   color: #F0F8FF
+}
+
 input {
     width: 240px;
-    height: 30px;
+    height: 40px;
     border: 1px solid #000;
     border-radius: 5px;
     display: block;
-
+    margin-bottom: 10px;
+    font-size: 14px;
+  
+}
+a {
+    text-decoration: none;
 }
 
 .container  {
-  width: 100vw;
   height: 100vh;
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
     
 }
 
 .error-message {
-    color: red;
-    font-size: 13px;
+    color: #000;
+    font-size: 12px;
 }
-
 
 button {
     width: 240px;
     height: 33px;
-    border: 2px solid #000;
+    border: 1px solid #F0F8FF;
     border-radius: 5px;
-    margin-top: 5px;
+    margin-top: 3px;
     background: #6495ED;
     display: block;
     cursor: pointer;
     font-weight: bold;
     
 }
+
+button:hover {
+    background: #008B8B;
+}
+
+

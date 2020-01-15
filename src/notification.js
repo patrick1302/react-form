@@ -2,8 +2,7 @@ import {store} from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css';
 import 'animate.css';
 
-const notifications = (title, message, type) => {
-    return (
+const notifications = (title, message, type) => (
         store.addNotification({
           title,
           message,
@@ -19,6 +18,6 @@ const notifications = (title, message, type) => {
             showIcon: true
           }
         })
-      )
-}
+)
+
 export default notifications;
