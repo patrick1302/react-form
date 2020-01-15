@@ -1,0 +1,49 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #A1C0E1;
+    font-family: 'Noto Serif', serif;
+    
+}
+
+input {
+    width: 240px;
+    height: 30px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    display: block;
+
+}
+
+.container  {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+    
+}
+
+.error-message {
+    color: red;
+    font-size: 13px;
+}
+
+
+button {
+    width: 240px;
+    height: 33px;
+    border: 2px solid #000;
+    border-radius: 5px;
+    margin-top: 5px;
+    background: #6495ED;
+    display: block;
+    cursor: pointer;
+    font-weight: bold;
+    
+}
